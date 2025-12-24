@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>∞ looped</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-main:#0e1117;
+  --bg-card:#161b22;
+  --bg-soft:#1f2933;
+  --text-main:#e6edf3;
+  --text-sub:#9da7b3;
+  --accent:#1db954;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+/* HEADER */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 60px;
+  border-bottom:1px solid var(--bg-soft);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  font-size:26px;
+  font-weight:600;
+}
+
+.logo .infinity{
+  font-size:34px;
+  color:var(--accent);
+  margin-right:6px;
+}
+
+.topbar nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--text-sub);
+}
+
+.topbar nav a.active{
+  color:var(--accent);
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  gap:60px;
+  padding:60px;
+  align-items:center;
+}
+
+.hero-left h2{ color:var(--accent); }
+.hero-left h1{ font-size:42px; margin:10px 0; }
+.hero-left p{ color:var(--text-sub); }
+
+.progress-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:30px 0;
+}
+
+.progress{
+  flex:1;
+  height:6px;
+  background:var(--bg-soft);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:60%;
+  background:linear-gradient(90deg,var(--accent),#1ed760);
+  animation:move 3s infinite alternate;
+}
+
+@keyframes move{
+  from{width:30%}
+  to{width:85%}
+}
+
+/* CONTROLS */
+.controls i{
+  font-size:28px;
+  margin-right:25px;
+  cursor:pointer;
+  color:var(--text-sub);
+  transition:0.3s;
+}
+
+.controls i:hover{
+  color:var(--accent);
+  transform:scale(1.2);
+}
+
+.play{
+  font-size:40px;
+  color:var(--accent);
+}
+
+.hero-right img{
+  width:420px;
+  border-radius:30px;
+}
+
+/* POPULAR PLAYLISTS */
+.albums{
+  padding:60px;
+}
+
+.albums h2{
+  color:var(--accent);
+  margin-bottom:25px;
+}
+
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.album{
+  background:var(--bg-card);
+  padding:15px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.album img{
+  width:100%;
+  border-radius:18px;
+  margin-bottom:12px;
+}
+
+.album p{
+  color:var(--text-sub);
+}
+
+.album:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 30px rgba(29,185,84,0.25);
+}
+
+/* MELODY PLAYLIST */
+.playlist-section{
+  padding:60px;
+}
+
+.playlist-section h2{
+  color:var(--accent);
+  margin-bottom:25px;
+}
+
+.song{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:18px;
+  margin-bottom:18px;
+  border-radius:20px;
+  background:var(--bg-card);
+  transition:0.3s;
+}
+
+.song img{
+  width:70px;
+  height:70px;
+  border-radius:15px;
+}
+
+.song p{
+  color:var(--text-sub);
+  font-size:14px;
+}
+
+.song span{
+  margin-left:auto;
+  color:var(--text-sub);
+}
+
+.song:hover{
+  background:var(--bg-soft);
+  transform:translateX(8px);
+}
+
+.song.active{
+  background:linear-gradient(90deg,var(--accent),#1ed760);
+  color:#02040a;
+}
+
+.song.active p,
+.song.active span{
+  color:#02040a;
+}
+
+/* MINI PLAYER */
+.player{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:var(--bg-card);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid var(--bg-soft);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--text-sub);
+  margin-bottom:80px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-right img{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="logo">
+    <span class="infinity">∞</span> looped
+  </div>
+  <nav>
+    <a class="active">Home</a>
+    <a>Albums</a>
+    <a>Artists</a>
+    <a>Playlist</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <h2>Now Playing</h2>
+    <h1>Oh oh – The First Love of Tamizh</h1>
+    <p>Yuvan Shankar Raja • Melody Hits</p>
+
+    <div class="progress-box">
+      <span>1:30</span>
+      <div class="progress"><div class="progress-fill"></div></div>
+      <span>4:10</span>
+    </div>
+
+    <div class="controls">
+      <i class="fa-solid fa-backward"></i>
+      <i class="fa-solid fa-play play"></i>
+      <i class="fa-solid fa-forward"></i>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="tm.jpg" alt="album">
+  </div>
+</section>
+
+<!-- 🔥 POPULAR PLAYLISTS -->
+<section class="albums">
+  <h2>Popular Playlists</h2>
+  <div class="album-grid">
+
+    <div class="album">
+      <img src="rahman.jpg">
+      <h3>A.R. Rahman Hits</h3>
+      <p>Timeless • Soulful</p>
+    </div>
+
+    <div class="album">
+      <img src="trendy.jpg">
+      <h3>Trending Tamil</h3>
+      <p>Youth • Viral</p>
+    </div>
+
+    <div class="album">
+      <img src="yuvan.jpg">
+      <h3>Yuvan Drugs</h3>
+      <p>Cult • Emotional</p>
+    </div>
+
+    <div class="album">
+      <img src="dhee4.jpg">
+      <h3>Dhee</h3>
+      <p>Indie • Modern</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🎵 MELODY PLAYLIST -->
+<section class="playlist-section">
+  <h2>🎵 Melody Playlist</h2>
+
+  <div class="song active">
+    <img src="https://picsum.photos/100?1">
+    <div>
+      <h4>Gehra Hua</h4>
+      <p>Sashwat Sachdev</p>
+    </div>
+    <span>4:10</span>
+  </div>
+
+  <div class="song">
+    <img src="https://picsum.photos/100?2">
+    <div>
+      <h4>Munbe Vaa</h4>
+      <p>A.R. Rahman</p>
+    </div>
+    <span>5:02</span>
+  </div>
+
+  <div class="song">
+    <img src="https://picsum.photos/100?3">
+    <div>
+      <h4>Vaseegara</h4>
+      <p>Harris Jayaraj</p>
+    </div>
+    <span>4:55</span>
+  </div>
+
+  <div class="song">
+    <img src="https://picsum.photos/100?4">
+    <div>
+      <h4>Nenjukkul Peidhidum</h4>
+      <p>Harris Jayaraj</p>
+    </div>
+    <span>6:09</span>
+  </div>
+
+  <div class="song">
+    <img src="https://picsum.photos/100?5">
+    <div>
+      <h4>Poongatrile</h4>
+      <p>Ilaiyaraaja</p>
+    </div>
+    <span>4:45</span>
+  </div>
+</section>
+
+<footer>
+  © 2025 ∞ looped Music • Designed by Tharun
+</footer>
+
+<div class="player">
+  <strong>Ohoh – The First Love</strong>
+  <span>Yuvan Shankar Raja</span>
+</div>
+
+</body>
+</html>
+
+
+
